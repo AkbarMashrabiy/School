@@ -21,6 +21,14 @@ public class GroupService {
         }
         return null;
     }
+    public boolean isAlreadyExistGroupName(String name){
+        for (Group group : Db.groups) {
+            if (group.getName().equals(name)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public List<Group> getAllActiveGroups(){
         List<Group> groups = new ArrayList<>();

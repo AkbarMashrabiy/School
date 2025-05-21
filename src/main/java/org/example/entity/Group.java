@@ -21,4 +21,13 @@ public class Group {
     private GroupStatus status;
     private Set<User> students;
 
+    @Override
+    public String toString() {
+        return "Group[" +
+                "teacher=" + teacher +
+                ", maxLessonInMonth=" + maxLessonInMonth +
+                ", students=" + students +
+                ", name='" + name + '\'' +
+                ']';
+    }
 }
