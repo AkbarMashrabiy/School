@@ -6,6 +6,7 @@ import org.example.enums.GroupStatus;
 import org.example.enums.Role;
 import org.example.service.GroupService;
 import org.example.service.UserService;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.UUID;
@@ -245,7 +246,7 @@ public class AdminUi {
         } else System.out.println("Wrong Index!");
     }
 
-    private static void editUser(List<User> allStudents, int index) {
+    private static void editUser(@NotNull List<User> allStudents, int index) {
         User user = allStudents.get(index - 1);
         user.setEmail(null);
         System.out.println("Enter full name");
