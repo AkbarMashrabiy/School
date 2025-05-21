@@ -21,6 +21,7 @@ public class User {
     public String toString() {
         return "User[" +
                 "fullName='" + fullName + '\'' +
+                "email='" + email + '\'' +
                 ']';
     }
 }

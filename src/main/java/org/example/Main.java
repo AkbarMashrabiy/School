@@ -1,6 +1,8 @@
 package org.example;
 
 import static org.example.db.Db.*;
+
+import org.example.db.Db;
 import org.example.entity.User;
 import org.example.enums.Role;
 import org.example.service.AuthService;
@@ -15,9 +17,9 @@ public class Main {
     public static AuthService authService = new AuthService();
 
     static {
-        User admin = new User(UUID.randomUUID(),"admin","admin", "admin", Role.ADMIN, false);
-        User teacher1 = new User(UUID.randomUUID(),"teacher1","teacher1", "teacher1", Role.TEACHER, false);
-        User teacher2 = new User(UUID.randomUUID(),"teacher2","teacher2", "teacher2", Role.TEACHER, false);
+        users.add(new User(UUID.randomUUID(),"admin","admin", "admin", Role.ADMIN, false));
+        users.add(new User(UUID.randomUUID(),"teacher1","teacher1", "teacher1", Role.TEACHER, false));
+        users.add(new User(UUID.randomUUID(),"teacher2","teacher2", "teacher2", Role.TEACHER, false));
     }
     public static void main(String[] args) {
         boolean isExisted = false;
