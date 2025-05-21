@@ -15,12 +15,10 @@ import static org.example.db.Db.scnInt;
 import static org.example.db.Db.scnStr;
 
 public class AdminUi {
-    private static User currentUser;
     private static final UserService userService = new UserService();
     private static final GroupService groupService = new GroupService();
 
     public static void adminUi(User user) {
-        currentUser = user;
         boolean isExisted = false;
         while (!isExisted) {
             System.out.println("""
@@ -87,8 +85,6 @@ public class AdminUi {
         }
     }
 
-
-
     private static void createGroup() {
         System.out.println("Enter Group name");
         String name = scnStr.nextLine();
@@ -109,8 +105,6 @@ public class AdminUi {
         groupService.addGroup(new Group(UUID.randomUUID(),name, teachers.get(index), maxLesson, GroupStatus.ACTIVE, null));
         System.out.println("Group successfully created!");
     }
-
-
 
     private static void delete() {
         while (true) {
