@@ -27,7 +27,7 @@ public class UserService {
     public List<User> getAllTeachers(){
         List<User> teachers = new ArrayList<>();
         for (User user : Db.users) {
-            if (user.getRole().equals(Role.TEACHER)){
+            if (user.getRole() != null && user.getRole().equals(Role.TEACHER)){
                 teachers.add(user);
             }
         }
@@ -36,7 +36,7 @@ public class UserService {
     public List<User> getAllStudents(){
         List<User> students = new ArrayList<>();
         for (User user : Db.users) {
-            if (user.getRole().equals(Role.STUDENT)){
+            if (user.getRole() != null && user.getRole().equals(Role.STUDENT)){
                 students.add(user);
             }
         }
@@ -46,7 +46,7 @@ public class UserService {
 
     public boolean isAlreadyExistUser(String email){
         for (User user : Db.users) {
-            if (user.getEmail().equals(email)){
+            if (user.getEmail()!= null && user.getEmail().equals(email)){
                 return true;
             }
         }

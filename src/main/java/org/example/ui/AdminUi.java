@@ -138,9 +138,10 @@ public class AdminUi {
         List<User> students = userService.getAllStudents();
         showAllStudents();
         if (students.isEmpty()) return;
-
-        System.out.print("\n Enter Index:  ");
+        System.out.println("\n0. Exit\n");
+        System.out.print("Enter Index:  ");
         int index = scnInt.nextInt();
+        if (index == 0) return;
         if (index > 0 && index <= students.size()) {
             User user = students.get(index - 1);
             user.setId(null);
@@ -156,9 +157,10 @@ public class AdminUi {
         List<User> teachers = userService.getAllTeachers();
         showAllTeachers();
         if (teachers.isEmpty()) return;
-
-        System.out.print("\n Enter Index:  ");
+        System.out.println("\n0. Exit\n");
+        System.out.print("Enter Index:  ");
         int index = scnInt.nextInt();
+        if (index == 0) return;
         if (index > 0 && index <= teachers.size()) {
             User user = teachers.get(index - 1);
             user.setId(null);
@@ -212,6 +214,7 @@ public class AdminUi {
                 case 2 -> {
                     editStudent();
                 }
+                default -> System.out.println("Wrong Index!");
             }
         }
     }
@@ -220,21 +223,23 @@ public class AdminUi {
         List<User> teachers = userService.getAllTeachers();
         showAllTeachers();
         if (teachers.isEmpty()) return;
-
-        System.out.print("\n Enter Index:  ");
+        System.out.println("\n0. Exit\n");
+        System.out.print("Enter Index:  ");
         int index = scnInt.nextInt();
+        if (index == 0) return;
         if (index > 0 && index <= teachers.size()) {
             editUser(teachers, index);
-        } else System.out.println("Wrong Index!");
+        } else System.out.println("Invalid command!");
     }
 
     private static void editStudent() {
         List<User> allStudents = userService.getAllStudents();
         showAllStudents();
         if (allStudents.isEmpty()) return;
-
-        System.out.print("\n Enter Index:  ");
+        System.out.println("\n0. Exit\n");
+        System.out.print("Enter Index:  ");
         int index = scnInt.nextInt();
+        if (index == 0) return;
         if (index > 0 && index <= allStudents.size()) {
             editUser(allStudents, index);
         } else System.out.println("Wrong Index!");
