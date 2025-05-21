@@ -50,7 +50,7 @@ public class AdminUi {
                     createGroup();
                 }
                 case 6 -> {
-//                    editGroup();
+                    editGroup();
                 }
                 case 0 -> {
                     isExisted = true;
@@ -60,9 +60,42 @@ public class AdminUi {
         }
     }
 
+    private static void editGroup() {
+        List<Group> allGroups = groupService.getAllGroups();
+        if (allGroups.isEmpty()) {
+            System.out.println("Group unavailable!, please add group first");
+            return;
+        }
+
+        for (int i = 0; i < allGroups.size(); i++) {
+            System.out.println((i+1) + (") ") + allGroups.get(i) );
+        }
+
+        System.out.println("\n Enter Index: ");
+        int index = scnInt.nextInt()-1;
+        if (index >= 0 && index <allGroups.size()){
+            Group group = allGroups.get(index);
+
+            List<User> teachers = userService.getAllTeachers();
+            showAllTeachers();
+            if (teachers.isEmpty()) return;
+            System.out.println("Choose teacher, Enter Index: ");
+            int i = scnInt.nextInt()-1;
+            group.setTeacher(teachers.get(i));
+            System.out.println("Group teacher changed successfully!");
+        }
+    }
+
+
+
     private static void createGroup() {
         System.out.println("Enter Group name");
         String name = scnStr.nextLine();
+
+        if (groupService.isAlreadyExistGroupName(name)){
+            System.out.println("This Group name already exist, please choose another!");
+            return;
+        }
 
         System.out.println("Enter max lessons in Moth");
         Integer maxLesson = scnInt.nextInt();
