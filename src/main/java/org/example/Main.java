@@ -20,6 +20,8 @@ public class Main {
         users.add(new User(UUID.randomUUID(),"admin","admin", "admin", Role.ADMIN, false));
         users.add(new User(UUID.randomUUID(),"teacher1","teacher1", "teacher1", Role.TEACHER, false));
         users.add(new User(UUID.randomUUID(),"teacher2","teacher2", "teacher2", Role.TEACHER, false));
+        users.add(new User(UUID.randomUUID(),"student","student", "student", Role.STUDENT, false));
+        users.add(new User(UUID.randomUUID(),"student2","student2", "student2", Role.STUDENT, false));
     }
     public static void main(String[] args) {
         boolean isExisted = false;

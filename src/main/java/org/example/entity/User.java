@@ -20,8 +20,8 @@ public class User {
     @Override
     public String toString() {
         return "User[" +
-                "fullName='" + fullName + '\'' +
-                "email='" + email + '\'' +
+                "fullName = " + fullName  +
+                "   role = " + role  +
                 ']';
     }
 }

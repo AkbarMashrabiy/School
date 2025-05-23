@@ -280,7 +280,7 @@ public class AdminUi {
         System.out.println("Teacher successfully added to Storage");
     }
 
-    private static void addStudent() {
+    public static void addStudent() {
         System.out.println("Enter student's full name");
         String fullName = scnStr.nextLine();
 
