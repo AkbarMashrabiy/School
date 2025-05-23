@@ -42,11 +42,29 @@ public class UserService {
         }
         return students;
     }
+    public List<User> getAllNotJoinedStudent(){
+        List<User> students = new ArrayList<>();
+        for (User user : Db.users) {
+            if (user.getRole() != null && user.getRole().equals(Role.STUDENT) && !user.getIsAddedToGroup()){
+                students.add(user);
+            }
+        }
+        return students;
+    }
 
 
     public boolean isAlreadyExistUser(String email){
         for (User user : Db.users) {
             if (user.getEmail()!= null && user.getEmail().equals(email)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean removeUser(User o){
+        for (User user : Db.users) {
+            if (user.equals(o)){
+                Db.users.remove(o);
                 return true;
             }
         }
